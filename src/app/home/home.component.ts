@@ -38,6 +38,7 @@ export class HomeComponent {
     this.fetchProducts(this.items, 0);
   }
 
+  // Function for handling pagination depending on the size of displayed items
   onPageChange(event: any) {
     const skipValue = event.pageIndex * event.pageSize;
     this.fetchProducts(event.pageSize, skipValue);

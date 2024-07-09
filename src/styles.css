@@ -2,7 +2,7 @@
 @import "primeng/resources/primeng.css"; */
 
 :root {
-  --bg-color: white;
+  --bg-color: rgb(244, 244, 244);
   --header-color: white;
   --border-color: rgb(230, 230, 230);
 }
@@ -23,6 +23,7 @@ html,
 body,
 app-root {
   height: 100%;
+  background-color: var(--bg-color);
 }
 
 app-root {
@@ -73,7 +74,7 @@ app-root {
 }
 
 .gap-4 {
-  gap: 4rem 1rem;
+  gap: 4rem 2rem;
 }
 
 .space-between {
@@ -112,5 +113,11 @@ input.ng-invalid {
 }
 /* Overrides */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
