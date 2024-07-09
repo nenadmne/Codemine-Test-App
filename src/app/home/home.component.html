@@ -1,1 +1,8 @@
-<p>home works!</p>
+<div class="column gap-1">
+  <div class="row wrap gap-1 space-between">
+    <app-product-item
+      *ngFor="let item of products"
+      [product]="item"
+    ></app-product-item>
+  </div>
+</div>

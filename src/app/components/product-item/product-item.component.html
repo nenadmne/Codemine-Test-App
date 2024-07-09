@@ -1,1 +1,8 @@
-<p>product-item works!</p>
+<div class="column gap-1 wrapper">
+  <img [src]="product.thumbnail" alt="Product thumbnail" />
+  <h2 class="title">{{ product.title }}</h2>
+  <div class="row">
+    <span class="price-label">Price:</span>
+    <span class="price">{{ product.price }}</span>
+  </div>
+</div>
