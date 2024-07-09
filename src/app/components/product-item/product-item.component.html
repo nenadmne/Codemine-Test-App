@@ -1,8 +1,29 @@
-<div class="column gap-1 wrapper">
-  <img [src]="product.thumbnail" alt="Product thumbnail" />
-  <h2 class="title">{{ product.title }}</h2>
-  <div class="row">
-    <span class="price-label">Price:</span>
-    <span class="price">{{ product.price }}</span>
+<main role="main">
+  <div class="product space-between">
+    <figure>
+      <img
+        [src]="product.thumbnail"
+        alt="Product Image"
+        class="product-image"
+      />
+    </figure>
+
+    <div class="product-description">
+      <div class="info">
+        <h1>{{ product.title }}</h1>
+      </div>
+
+      <div class="price">{{ product.price }}</div>
+    </div>
+
+    <div class="product-sidebar">
+      <button class="buy">
+        <span>BUY ITEM</span>
+      </button>
+
+      <button class="info">
+        <span>MORE INFO</span>
+      </button>
+    </div>
   </div>
-</div>
+</main>

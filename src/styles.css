@@ -72,6 +72,10 @@ app-root {
   gap: 2rem;
 }
 
+.gap-4 {
+  gap: 4rem 1rem;
+}
+
 .space-between {
   justify-content: space-between;
 }

@@ -1,26 +1,185 @@
-.wrapper {
-  width: 250px;
+*,
+*::after,
+*::before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+}
 
-  img {
-    aspect-ratio: 1;
-    object-fit: contain;
-    width: 100%;
-    border-radius: 15px;
-    background-color: grey;
-  }
+p {
+  margin: 0 0 30px;
+}
 
-  .title {
-    font-weight: 700;
-    font-size: 1.5rem;
-  }
+a {
+  text-decoration: none;
+}
 
-  .price-label {
-    font-weight: 300;
-    font-size: 1rem;
-  }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 300;
+  color: #31353d;
+  margin: 0;
+}
 
-  .price {
-    font-weight: 500;
-    font-size: 1rem;
-  }
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+abbr {
+  cursor: help;
+}
+
+main {
+  color: #aaa;
+  font-size: 14px;
+  font-family: "MavenProRegular", arial, tahoma, trebuchet ms, verdana;
+  height: 100%;
+}
+
+img {
+  max-width: 100%;
+}
+
+figure {
+  margin: 0;
+  line-height: 0;
+}
+
+/* Product container */
+.product {
+  background: #fff;
+  max-width: 300px;
+  position: relative;
+  z-index: 15;
+  margin: 0 auto;
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+  -o-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Product description */
+.product .product-description {
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: top;
+  flex-direction: row;
+  position: relative;
+  z-index: 15;
+  background: #fff;
+}
+
+.product .product-description .info {
+  padding: 0 1rem;
+  color: #aaa;
+  font-size: 0.8em;
+  width: 65%;
+  float: left;
+  height: fit-content;
+}
+
+.product .product-description .info h1 {
+  font-size: 20px;
+  margin: 0 0 5px;
+}
+
+.product .product-description .info p {
+  margin-bottom: 15px;
+  line-height: 1.3em;
+}
+
+.product .product-description .price {
+  width: 35%;
+  float: left;
+  color: #9bb6aa;
+  font-size: 2.5em;
+  position: relative;
+}
+
+.product .product-description .price::before {
+  content: "$";
+  position: absolute;
+  top: 0;
+  left: -10px;
+  font-size: 0.35em;
+}
+
+/* Product sidebar */
+.product .product-sidebar {
+  height: 50px; /* Adjust height as needed */
+  background: #31353d;
+  width: 100%; /* Take full width */
+  position: absolute;
+  bottom: 0px; /* Initially hide below the product */
+  left: 0;
+  z-index: -1;
+  -webkit-transition: bottom 0.3s ease; /* Transition for smooth animation */
+  -moz-transition: bottom 0.3s ease;
+  -o-transition: bottom 0.3s ease;
+  transition: bottom 0.3s ease;
+}
+
+.product:hover .product-sidebar {
+  bottom: -50px;
+  z-index: 15;
+}
+
+.product .product-sidebar button {
+  border: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  color: #fff;
+  padding: 0.9em;
+  font-size: 0.8em;
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+
+.product .product-sidebar button.buy {
+  background: transparent
+    url("https://raw.githubusercontent.com/brunodsgn/productpreview/master/assets/img/icons/buy.png")
+    no-repeat 15px;
+}
+
+.product .product-sidebar button.info {
+  background: transparent
+    url("https://raw.githubusercontent.com/brunodsgn/productpreview/master/assets/img/icons/info.png")
+    no-repeat 15px;
+}
+
+.product .product-sidebar button span {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=($opacity * 100))";
+  filter: alpha(opacity=0);
+  -moz-opacity: 0;
+  -khtml-opacity: 0;
+  opacity: 0;
+  white-space: nowrap;
+  margin-left: 30px;
+}
+
+.product .product-sidebar button:hover {
+  width: 130px;
+  background-color: #9bb6aa;
+  position: relative;
+  background-position: 15px center;
+  border-color: #9bb6aa;
+}
+
+.product .product-sidebar button:hover span {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=($opacity * 100))";
+  filter: alpha(opacity=100);
+  -moz-opacity: 1;
+  -khtml-opacity: 1;
+  opacity: 1;
 }
