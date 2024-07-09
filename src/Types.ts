@@ -48,7 +48,15 @@ export interface PaginationParams {
     | number
     | boolean
     | ReadonlyArray<string | number | boolean>;
-
   limit: number;
   skip: number;
+}
+
+export interface SearchParams {
+  [param: string]:
+    | string
+    | number
+    | boolean
+    | ReadonlyArray<string | number | boolean>;
+  q: string;
 }

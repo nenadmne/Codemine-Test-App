@@ -21,7 +21,6 @@ export class HomeComponent {
 
   // Fetching function, trough which i send url and query parameters to API
   fetchProducts(limit: number, skip: number) {
-    console.log(limit, skip);
     this.productService
       .getProducts('https://dummyjson.com/products', {
         limit,
