@@ -17,7 +17,9 @@ export class ProductItemComponent {
   readonly dialog = inject(MatDialog);
 
   openDialog() {
-    const dialogRef = this.dialog.open(ProductDetailsComponent);
+    const dialogRef = this.dialog.open(ProductDetailsComponent, {
+      data: { id: this.product.id },
+    });
 
     dialogRef.afterClosed().subscribe((result) => {
       console.log(`Dialog result: ${result}`);

@@ -1,0 +1,259 @@
+.product-details-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 375px;
+  max-width: 375px;
+  height: fit-content;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .product-details-wrapper {
+    gap: 0rem;
+    flex-direction: row;
+    width: 100%;
+    max-width: 1420px;
+    height: fit-content;
+    justify-content: space-between;
+  }
+}
+
+@media (min-width: 1024px) {
+  .product-details-wrapper {
+    height: calc(100% - 89px);
+    min-height: calc(100vh - 89px);
+  }
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  width: 100%;
+  margin: 0;
+  list-style: none;
+}
+
+.product-info p {
+  margin: 0;
+}
+
+.title {
+  text-transform: uppercase;
+  color: var(--secondary);
+  font-weight: 700;
+  font-size: 2rem;
+  margin: 1rem 0;
+}
+
+.description {
+  font-size: 1.25rem;
+  font-weight: 300;
+  color: var(--black);
+  letter-spacing: -0.5px;
+  background-color: var(--pale);
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
+.category {
+  display: flex;
+  justify-content: right;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--grey);
+  border-radius: 0.25rem;
+  outline: 0;
+}
+
+.category:focus {
+  outline: 0;
+}
+
+.brand {
+  display: flex;
+  justify-content: right;
+  padding: 0rem 1rem;
+  font-weight: 300;
+  font-size: 1rem;
+}
+
+.category a,
+.brand span {
+  text-transform: uppercase;
+  color: var(--secondary);
+  font-weight: 700;
+  margin-left: 0.5rem;
+  font-size: 1rem;
+}
+
+.stock {
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.price {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: fit-content;
+  margin-bottom: 1rem;
+}
+
+.price svg {
+  font-size: 3.5rem;
+  width: fit-content !important;
+}
+
+.price span {
+  font-size: 1.25rem;
+}
+
+.prod-old-price {
+  color: var(--black);
+  padding: 0.25rem;
+  line-height: 1.25rem;
+  text-decoration: line-through;
+  text-decoration-color: var(--secondary);
+  text-decoration-thickness: 1px;
+  text-decoration-style: double;
+}
+
+.prod-price {
+  background-color: var(--green-light);
+  color: var(--white);
+  padding: 0.25rem;
+  line-height: 1.25rem;
+  width: fit-content;
+}
+
+.prod-discount {
+  background-color: var(--red);
+  color: var(--white);
+  padding: 0.25rem;
+  line-height: 1.25rem;
+  width: fit-content;
+}
+
+@media (min-width: 768px) {
+  .product-info {
+    flex-direction: column;
+    padding: 4rem 2rem;
+    width: 40%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .product-info {
+    flex-direction: column;
+    padding: 4rem 2rem;
+    width: 40%;
+  }
+}
+
+.product-images {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .product-images {
+    padding: 4rem 2rem;
+    justify-content: space-between;
+    width: 50%;
+    gap: 5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .product-images {
+    padding: 4rem 2rem;
+    gap: 0;
+  }
+}
+
+.small-image-box {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.small-image-box img {
+  width: 16%;
+  height: 4rem;
+  object-fit: contain;
+  box-shadow: none;
+  border-radius: 0.2rem;
+}
+
+.small-image-box img:hover {
+  cursor: pointer;
+  scale: 1.2;
+}
+
+.current-image {
+  border: 1px solid var(--secondary);
+  scale: 1.2;
+  box-shadow: 0.2rem 0.2rem 0.2rem var(--secondary) !important;
+}
+
+@media (min-width: 768px) {
+  .small-image-box img {
+    height: 5rem;
+    object-fit: contain;
+    box-shadow: none;
+    border-radius: 0.2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .small-image-box img {
+    height: 8rem;
+    object-fit: contain;
+    box-shadow: none;
+    border-radius: 0.2rem;
+  }
+}
+
+.main-image {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.image {
+  width: 100%;
+  object-fit: contain;
+  max-height: 450px;
+}
+
+.left-arrow,
+.right-arrow {
+  top: 50%;
+  font-size: 3rem !important;
+  padding: 0.5rem;
+  color: var(--secondary);
+  z-index: 2;
+  cursor: pointer;
+  user-select: none;
+  border: 1px solid var(--secondary);
+  margin: 1rem;
+}
+
+.slide {
+  display: flex;
+  opacity: 0;
+  transition-duration: 1s ease;
+}
+
+.slide.active {
+  opacity: 1;
+  transition-duration: 1s;
+}

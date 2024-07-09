@@ -147,6 +147,7 @@ figure {
   -moz-transition: all 0.4s ease;
   -o-transition: all 0.4s ease;
   transition: all 0.4s ease;
+  border-radius: 0 !important;
 }
 
 .product .product-sidebar button.buy {

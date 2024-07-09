@@ -28,11 +28,15 @@ export interface Options {
 }
 
 export interface Product {
+  id: number;
   title: string;
   description: string;
   price: string;
   stock: number;
   thumbnail: string;
+  category: string;
+  brand: string;
+  discountPercentage: number;
 }
 
 export interface Products {

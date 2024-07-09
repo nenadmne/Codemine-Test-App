@@ -4,17 +4,11 @@ import { Product } from '../../Types';
 import { CommonModule } from '@angular/common';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { ProductItemComponent } from '../components/product-item/product-item.component';
-import { ProductDetailsComponent } from '../components/modals/product-details/product-details.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [
-    ProductItemComponent,
-    CommonModule,
-    MatPaginatorModule,
-    ProductDetailsComponent,
-  ],
+  imports: [ProductItemComponent, CommonModule, MatPaginatorModule],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
