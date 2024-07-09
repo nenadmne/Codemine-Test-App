@@ -21,14 +21,15 @@
           /></a>
         </li>
       </ul>
-      <form class="d-flex" role="search">
+      <form class="d-flex" role="search" (ngSubmit)="onSearch($event)">
         <input
           class="form-control me-2 shadow-none border-0"
           type="search"
           placeholder="Search"
           aria-label="Search"
+          [formControl]="searchControl"
         />
-        <button class="btn btn-outline-secondary" type="submit">Search</button>
+        <button class="btn btn-outline-secondary" type="button">Search</button>
       </form>
     </div>
   </div>
