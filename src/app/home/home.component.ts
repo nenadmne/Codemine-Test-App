@@ -1,45 +1,46 @@
-import { Component } from '@angular/core';
-import { ProductsService } from '../services/products.service';
-import { Product, Products } from '../../Types';
-import { ProductItemComponent } from '../components/product-item/product-item.component';
+import { Component, OnInit } from '@angular/core';
+import { SharedService } from '../services/shared.service';
+import { Product } from '../../Types';
 import { CommonModule } from '@angular/common';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { ProductItemComponent } from '../components/product-item/product-item.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [ProductItemComponent, CommonModule, MatPaginatorModule],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css',
+  styleUrls: ['./home.component.css'],
 })
-export class HomeComponent {
-  constructor(private productService: ProductsService) {}
-
+export class HomeComponent implements OnInit {
   products: Product[] = [];
   length: number = 0;
   items: number = 5;
 
-  // Fetching function, trough which i send url and query parameters to API
-  fetchProducts(limit: number, skip: number) {
-    this.productService
-      .getProducts('https://dummyjson.com/products', {
-        limit,
-        skip,
-      })
-      .subscribe((products: Products) => {
-        this.products = products.products;
-        this.length = products.total;
-      });
+  constructor(private sharedService: SharedService) {}
+
+  fetchProducts() {
+    const { limit, skip } = this.sharedService.getCurrentPaginationParams();
+    this.sharedService.updatePaginationParams(limit, skip);
+    this.sharedService.fetchAllProducts(limit, skip);
   }
 
-  // Fetching function that works on first render of the page
   ngOnInit() {
-    this.fetchProducts(this.items, 0);
+    this.sharedService.products$.subscribe((products: Product[]) => {
+      this.products = products;
+    });
+    this.sharedService.totalItems$.subscribe((total: number) => {
+      this.length = total;
+    });
+
+    // Fetch initial products based on current pagination and search parameters
+    this.fetchProducts();
   }
 
-  // Function for handling pagination depending on the size of displayed items
   onPageChange(event: any) {
-    const skipValue = event.pageIndex * event.pageSize;
-    this.fetchProducts(event.pageSize, skipValue);
+    const limit = event.pageSize;
+    const skip = event.pageIndex * event.pageSize;
+    this.sharedService.updatePaginationParams(limit, skip);
+    this.fetchProducts();
   }
 }
