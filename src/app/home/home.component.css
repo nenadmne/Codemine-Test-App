@@ -3,7 +3,8 @@
 }
 
 .product-wrapper {
-  padding: 2rem 0 6rem 0;
+  padding: 6rem 0;
+  flex-direction: row;
 }
 
 .paginator {

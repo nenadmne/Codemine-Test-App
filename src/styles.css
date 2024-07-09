@@ -20,6 +20,15 @@ h4 {
 }
 
 html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+html,
 body,
 app-root {
   height: 100%;
@@ -73,8 +82,9 @@ app-root {
   gap: 2rem;
 }
 
+/* Needed important here to override bootstrap */
 .gap-4 {
-  gap: 4rem 2rem;
+  gap: 4rem 2rem !important;
 }
 
 .space-between {
@@ -104,20 +114,8 @@ app-root {
 }
 
 /* Overrides */
-.p-rating-cancel-item {
-  display: none;
-}
-
-input.ng-invalid {
-  border: 1px solid red;
+.ng-star-inserted {
+  width: fit-content;
+  padding: 0;
 }
 /* Overrides */
-
-html,
-body {
-  height: 100%;
-}
-body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-}
