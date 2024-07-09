@@ -11,9 +11,15 @@
     <div class="product-description">
       <div class="info">
         <h1>{{ product.title }}</h1>
+        <p>{{ product.description }}</p>
       </div>
 
-      <div class="price">{{ product.price }}</div>
+      <div class="price-wrapper">
+        <p class="price">{{ product.price }}</p>
+        <p class="stock">
+          In stock: <span>{{ product.stock }}</span>
+        </p>
+      </div>
     </div>
 
     <div class="product-sidebar">

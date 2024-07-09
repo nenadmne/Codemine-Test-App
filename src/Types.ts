@@ -29,6 +29,7 @@ export interface Options {
 
 export interface Product {
   title: string;
+  description: string;
   price: string;
   stock: number;
   thumbnail: string;

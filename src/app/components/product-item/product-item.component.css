@@ -44,6 +44,7 @@ main {
 
 img {
   max-width: 100%;
+  background-color: #f9f9f9;
 }
 
 figure {
@@ -66,7 +67,7 @@ figure {
 
 /* Product description */
 .product .product-description {
-  height: 4rem;
+  height: 10rem;
   display: flex;
   justify-content: center;
   align-items: top;
@@ -74,6 +75,7 @@ figure {
   position: relative;
   z-index: 15;
   background: #fff;
+  margin-top: 1rem;
 }
 
 .product .product-description .info {
@@ -96,11 +98,12 @@ figure {
 }
 
 .product .product-description .price {
-  width: 35%;
-  float: left;
   color: #9bb6aa;
-  font-size: 2.5em;
+  font-size: 1.5em;
   position: relative;
+  height: fit-content;
+  margin: 0;
+  width: fit-content;
 }
 
 .product .product-description .price::before {
@@ -108,7 +111,7 @@ figure {
   position: absolute;
   top: 0;
   left: -10px;
-  font-size: 0.35em;
+  font-size: 0.6em;
 }
 
 /* Product sidebar */
@@ -182,4 +185,20 @@ figure {
   -moz-opacity: 1;
   -khtml-opacity: 1;
   opacity: 1;
+}
+
+.price-wrapper {
+  width: 35%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0 1rem 1rem 1rem;
+  .stock {
+    margin: 0;
+    text-decoration: underline;
+    font-size: 0.85rem;
+  }
 }

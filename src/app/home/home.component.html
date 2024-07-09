@@ -1,8 +1,16 @@
-<div class="column gap-1">
-  <div class="row wrap gap-4 full-center">
+<div class="column space-between wrapper">
+  <div class="row wrap gap-4 full-center product-wrapper">
     <app-product-item
       *ngFor="let item of products"
       [product]="item"
     ></app-product-item>
   </div>
+  <mat-paginator
+    [length]="length"
+    [pageSize]="items"
+    [pageSizeOptions]="[5, 10, 20, 50]"
+    aria-label="Select page"
+    (page)="onPageChange($event)"
+  >
+  </mat-paginator>
 </div>

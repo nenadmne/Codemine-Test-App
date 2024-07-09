@@ -111,3 +111,6 @@ input.ng-invalid {
   border: 1px solid red;
 }
 /* Overrides */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
