@@ -8,13 +8,11 @@ form {
   box-sizing: border-box;
 }
 
-/* Style for form labels */
 label {
   display: block;
   margin: 5px 0;
 }
 
-/* Style for form inputs */
 input[type="text"],
 input[type="email"] {
   width: 400px;
@@ -24,14 +22,12 @@ input[type="email"] {
   font-size: 14px;
 }
 
-/* Style for error messages */
 .error-message {
-  color: var(--red); /* Red color for error messages */
+  color: var(--red);
   font-size: 12px;
   margin-bottom: 0.5rem;
 }
 
-/* Style for submit button */
 button[type="submit"] {
   background-color: var(--cart-blue);
   color: var(--white);
@@ -108,10 +104,4 @@ button[type="button"] {
 
 .disabled {
   opacity: 0.5;
-}
-
-.custom-snackbar-success {
-  .mdc-snackbar__surface {
-    background-color: green !important;
-  }
 }

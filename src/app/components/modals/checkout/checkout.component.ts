@@ -72,9 +72,14 @@ export class CheckoutComponent {
         .subscribe({
           next: () => {
             this.snackBar.open('Order placed successfully!', 'Close', {
-              duration: 100000, // Duration in milliseconds
-              panelClass:"custom-snackbar-success",
+              duration: 3000,
+              panelClass: 'custom-snackbar-success',
             });
+            setTimeout(() => {
+              this.dialogRef.close();
+              this.productCartStoreService.updateCartProducts([]);
+              window.location.reload();
+            }, 2500);
           },
           error: (err) => {
             console.error('Order placement failed', err);
@@ -82,7 +87,7 @@ export class CheckoutComponent {
               'Failed to place order. Please try again.',
               'Close',
               {
-                duration: 3000, // Duration in milliseconds
+                duration: 3000,
                 panelClass: ['custom-snackbar-error'],
               }
             );

@@ -52,7 +52,6 @@ figure {
   line-height: 0;
 }
 
-/* Product container */
 .product {
   background: var(--white);
   max-width: 300px;
@@ -65,7 +64,6 @@ figure {
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
 }
 
-/* Product description */
 .product .product-description {
   height: 10rem;
   display: flex;
@@ -116,16 +114,15 @@ figure {
   font-size: 0.6em;
 }
 
-/* Product sidebar */
 .product .product-sidebar {
-  height: 50px; /* Adjust height as needed */
+  height: 50px;
   background: #31353d;
-  width: 100%; /* Take full width */
+  width: 100%;
   position: absolute;
-  bottom: 0px; /* Initially hide below the product */
+  bottom: 0px;
   left: 0;
   z-index: -1;
-  -webkit-transition: bottom 0.3s ease; /* Transition for smooth animation */
+  -webkit-transition: bottom 0.3s ease;
   -moz-transition: bottom 0.3s ease;
   -o-transition: bottom 0.3s ease;
   transition: bottom 0.3s ease;
@@ -186,10 +183,10 @@ figure {
 
 .product .product-sidebar .remove-button:hover {
   width: 130px;
-  background-color: #ff6f61; /* Reddish background color */
+  background-color: #ff6f61;
   position: relative;
   background-position: 15px center;
-  border-color: #ff6f61; /* Reddish border color */
+  border-color: #ff6f61;
 }
 
 .product .product-sidebar button:hover span {
