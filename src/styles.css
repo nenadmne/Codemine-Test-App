@@ -12,6 +12,8 @@
   --grey: #d3d3d3;
   --pale: #e6f7ff;
   --black: #1e1e1e;
+  --cart-blue: rgb(0, 123, 255);
+  --cart-border: rgba(245, 245, 245);
 }
 
 html,

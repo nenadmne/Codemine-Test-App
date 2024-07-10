@@ -54,7 +54,7 @@ figure {
 
 /* Product container */
 .product {
-  background: #fff;
+  background: var(--white);
   max-width: 300px;
   position: relative;
   z-index: 15;
@@ -74,7 +74,7 @@ figure {
   flex-direction: row;
   position: relative;
   z-index: 15;
-  background: #fff;
+  background: var(--white);
   margin-top: 1rem;
 }
 
@@ -152,7 +152,8 @@ figure {
   border-radius: 0 !important;
 }
 
-.product .product-sidebar button.buy {
+.product .product-sidebar button.buy,
+.product .product-sidebar button.remove-button {
   background: transparent
     url("https://raw.githubusercontent.com/brunodsgn/productpreview/master/assets/img/icons/buy.png")
     no-repeat 15px;
@@ -174,12 +175,21 @@ figure {
   margin-left: 30px;
 }
 
-.product .product-sidebar button:hover {
+.product .product-sidebar .buy:hover,
+.product .product-sidebar .info:hover {
   width: 130px;
   background-color: #9bb6aa;
   position: relative;
   background-position: 15px center;
   border-color: #9bb6aa;
+}
+
+.product .product-sidebar .remove-button:hover {
+  width: 130px;
+  background-color: #ff6f61; /* Reddish background color */
+  position: relative;
+  background-position: 15px center;
+  border-color: #ff6f61; /* Reddish border color */
 }
 
 .product .product-sidebar button:hover span {

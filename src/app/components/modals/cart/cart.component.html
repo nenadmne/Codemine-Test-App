@@ -1,1 +1,84 @@
-<p>cart works!</p>
+<section class="gradient-custom">
+  <div class="left-column">
+    <div *ngIf="cartProducts$" class="cart-item-box">
+      <h2 class="cart-amount">Your cart - {{ totalQuantity }} products</h2>
+      <div class="cart-item-list">
+        <div
+          *ngFor="let item of cartProducts$ | async"
+          class="cart-item-wrapper"
+        >
+          <div class="cart-item">
+            <div class="cart-item-image">
+              <img [src]="item.image" />
+            </div>
+            <div class="cart-item-info">
+              <h2>
+                <strong>{{ item.title }}</strong>
+              </h2>
+              <p>
+                Amount: <strong>{{ item.amountInCart }}</strong>
+              </p>
+              <p style="color: var(--green-light); font-weight: 700">
+                ${{ item.price }}
+              </p>
+            </div>
+          </div>
+          <div class="cart-quantity-wrapper">
+            <mat-icon class="quantity-btn" (click)="decreaseItem(item.id)">
+              remove
+            </mat-icon>
+            <mat-icon class="quantity-btn" (click)="increaseItem(item.id)">
+              add
+            </mat-icon>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section class="pay-options-wrapper">
+      <p><strong>We accept</strong></p>
+      <div class="pay-options">
+        <img
+          src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/visa.svg"
+          alt="Visa"
+        />
+        <img
+          src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/amex.svg"
+          alt="American Express"
+        />
+        <img
+          src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/mastercard.svg"
+          alt="Mastercard"
+        />
+        <img
+          src="https://res.cloudinary.com/dtiuw0ams/image/upload/v1720627331/pngwing.com_lunagf.png"
+          alt="PayPal"
+        />
+      </div>
+    </section>
+  </div>
+  <div class="summary-wrapper">
+    <h2>Summary</h2>
+    <div class="products-and-shipping">
+      <p class="summary-products">
+        <span>Products</span>
+        <span>{{ "$" + totalAmount.toFixed(2) }}</span>
+      </p>
+      <p class="shipping">
+        Shipping
+        <span>Gratis</span>
+      </p>
+    </div>
+    <div class="summary-amount-wrapper">
+      <div>
+        <strong>Total amount</strong>
+        <strong>
+          <p class="mb-0">(including VAT)</p>
+        </strong>
+      </div>
+      <div>
+        <strong>{{ "$ " + totalAmount.toFixed(2) }}</strong>
+      </div>
+    </div>
+    <button *ngIf="cartProducts$" class="confirm-btn">Confirm order</button>
+  </div>
+</section>

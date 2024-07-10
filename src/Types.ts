@@ -38,7 +38,7 @@ export interface Product {
   category: string;
   brand: string;
   discountPercentage: number;
-  rating:number;
+  rating: number;
 }
 
 export interface Products {
@@ -65,4 +65,13 @@ export interface SearchParams {
     | boolean
     | ReadonlyArray<string | number | boolean>;
   q: string;
+}
+
+export interface CartProduct {
+  id: number;
+  image: string;
+  title: string;
+  price: number;
+  amountInCart: number;
+  amountInStock: number;
 }

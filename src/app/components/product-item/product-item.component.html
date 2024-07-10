@@ -37,11 +37,11 @@
       </button>
 
       <button
-        class="buy"
+        class="remove-button"
         *ngIf="inStore"
         (click)="removeItemFromCart(product.id)"
       >
-        <span>REMOVE ITEM</span>
+        <span>REMOVE</span>
       </button>
 
       <button class="info" mat-button (click)="openDialog()">
