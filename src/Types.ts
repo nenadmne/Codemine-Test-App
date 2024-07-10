@@ -31,12 +31,14 @@ export interface Product {
   id: number;
   title: string;
   description: string;
-  price: string;
+  price: number;
   stock: number;
   thumbnail: string;
+  images: string;
   category: string;
   brand: string;
   discountPercentage: number;
+  rating:number;
 }
 
 export interface Products {

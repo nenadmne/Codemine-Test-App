@@ -2,9 +2,16 @@
 @import "primeng/resources/primeng.css"; */
 
 :root {
+  --white: #fff;
   --bg-color: rgb(244, 244, 244);
   --header-color: white;
   --border-color: rgb(230, 230, 230);
+  --secondary: #333333;
+  --green-light: rgb(40, 167, 69);
+  --red: darkred;
+  --grey: #d3d3d3;
+  --pale: #e6f7ff;
+  --black: #1e1e1e;
 }
 
 html,
@@ -117,5 +124,10 @@ app-root {
 .ng-star-inserted {
   width: fit-content;
   padding: 0;
+}
+
+.mat-mdc-dialog-surface {
+  width: fit-content !important;
+  max-width: unset !important;
 }
 /* Overrides */

@@ -1,6 +1,6 @@
 .product-details-wrapper {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   width: 375px;
   max-width: 375px;
   height: fit-content;
@@ -11,7 +11,7 @@
   .product-details-wrapper {
     gap: 0rem;
     flex-direction: row;
-    width: 100%;
+    width: 768px;
     max-width: 1420px;
     height: fit-content;
     justify-content: space-between;
@@ -22,6 +22,7 @@
   .product-details-wrapper {
     height: calc(100% - 89px);
     min-height: calc(100vh - 89px);
+    width: 1024px;
   }
 }
 
@@ -31,7 +32,10 @@
   padding: 1rem;
   width: 100%;
   margin: 0;
-  list-style: none;
+}
+
+ul {
+  list-style-type: none;
 }
 
 .product-info p {
@@ -107,6 +111,7 @@
 
 .price span {
   font-size: 1.25rem;
+  letter-spacing: 2px;
 }
 
 .prod-old-price {
@@ -256,4 +261,22 @@
 .slide.active {
   opacity: 1;
   transition-duration: 1s;
+}
+
+.star {
+  font-size: 24px;
+}
+
+.rating {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.25rem;
+  margin-top: 1rem;
+
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }

@@ -1,18 +1,78 @@
-<div class="modal-content">
-  <div class="modal-header">
-    <h5 class="modal-title">Product Details</h5>
+<ng-container *ngIf="product">
+  <div class="product-details-wrapper">
+    <div class="product-images">
+      <div class="main-image">
+        <button
+          *ngIf="images.length > 1"
+          class="left-arrow"
+          (click)="prevSlide()"
+        >
+          &#8249;
+        </button>
+        <div
+          *ngFor="let slide of images; let index = index"
+          [ngClass]="{ slide: true, active: index === current }"
+        >
+          <img
+            *ngIf="index === current"
+            [src]="slide"
+            alt="image"
+            class="image"
+          />
+        </div>
+        <button
+          *ngIf="images.length > 1"
+          class="right-arrow"
+          (click)="nextSlide()"
+        >
+          &#8250;
+        </button>
+      </div>
+      <div class="small-image-box">
+        <img
+          *ngFor="let item of images; let index = index"
+          (click)="switchImage(index)"
+          [class.current-image]="index === current"
+          [src]="item"
+        />
+      </div>
+    </div>
+
+    <ul class="product-info" key="{product}">
+      <li class="category">
+        <p>
+          {{ product.category }}
+        </p>
+      </li>
+      <li class="brand">
+        <p>
+          powered by <span>{{ product.brand }}</span>
+        </p>
+      </li>
+      <li class="title">{{ product.title }}</li>
+      <li class="description">{{ product.description }}</li>
+      <li class="stock">In stock: {{ product.stock }}</li>
+      <li class="price">
+        <span class="prod-old-price">
+          {{ oldPrice }}
+        </span>
+        <span class="prod-discount">-{{ product.discountPercentage }}%</span>
+        <span class="prod-price">${{ product.price }}</span>
+      </li>
+      <li class="rating">
+        <div>
+          <mat-icon *ngFor="let star of getRatingArray()" class="star">
+            {{
+              star === 0.5 ? "star_half" : star === 0 ? "star_border" : "star"
+            }}
+          </mat-icon>
+        </div>
+        <span>{{ product.rating }}/5</span>
+      </li>
+    </ul>
   </div>
-  <div class="modal-body">
-    <ng-container *ngIf="product">
-      <h2>{{ product.title }}</h2>
-      <p>{{ product.description }}</p>
-      <p>Price: {{ product.price }}</p>
-      <p>Stock: {{ product.stock }}</p>
-      <!-- Add more fields as needed -->
-    </ng-container>
-    <ng-container *ngIf="!product">
-      <p>Loading product details...</p>
-    </ng-container>
-  </div>
-  <div class="modal-footer"></div>
-</div>
+</ng-container>
+
+<ng-container *ngIf="!product">
+  <p>Loading product details...</p>
+</ng-container>
