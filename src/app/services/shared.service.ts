@@ -7,13 +7,16 @@ import { ProductsService } from './products.service';
   providedIn: 'root',
 })
 export class SharedService {
-  private productsSubject = new BehaviorSubject<Product[]>([]);
-  products$ = this.productsSubject.asObservable();
-  private totalItemsSubject = new BehaviorSubject<number>(0);
-  totalItems$ = this.totalItemsSubject.asObservable();
+  readonly API_PRODUCTS = 'https://dummyjson.com/products';
+  readonly API_PRODUCTS_SEARCH = 'https://dummyjson.com/products/search';
 
+  private productsSubject = new BehaviorSubject<Product[]>([]);
+  private totalItemsSubject = new BehaviorSubject<number>(0);
   private currentSearchParams: SearchParams = { q: '' };
   private currentPaginationParams: PaginationParams = { limit: 5, skip: 0 };
+
+  products$ = this.productsSubject.asObservable();
+  totalItems$ = this.totalItemsSubject.asObservable();
 
   constructor(private productsService: ProductsService) {}
 
@@ -25,7 +28,7 @@ export class SharedService {
         ...this.currentPaginationParams,
       };
       this.productsService
-        .getProducts('https://dummyjson.com/products/search', combinedParams)
+        .getProducts(this.API_PRODUCTS_SEARCH, combinedParams)
         .subscribe((products: Products) => {
           this.productsSubject.next(products.products);
           this.totalItemsSubject.next(products.total);
@@ -33,7 +36,7 @@ export class SharedService {
     } else {
       this.productsService
         .getProducts(
-          'https://dummyjson.com/products',
+          this.API_PRODUCTS,
           this.currentPaginationParams
         )
         .subscribe((products: Products) => {
@@ -54,7 +57,7 @@ export class SharedService {
         ...this.currentPaginationParams,
       };
       this.productsService
-        .searchProducts('https://dummyjson.com/products/search', combinedParams)
+        .searchProducts(this.API_PRODUCTS_SEARCH, combinedParams)
         .subscribe((products: Products) => {
           this.productsSubject.next(products.products);
           this.totalItemsSubject.next(products.total);

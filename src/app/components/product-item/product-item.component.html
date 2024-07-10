@@ -1,5 +1,5 @@
 <section>
-  <div class="product space-between">
+  <div class="product space-between" [class.highlighted]="inStore">
     <figure>
       <img
         [src]="product.thumbnail"
@@ -19,12 +19,29 @@
         <p class="stock">
           In stock: <span>{{ product.stock }}</span>
         </p>
+        <p class="cart-item" *ngIf="inStore">
+          In cart: <span>{{ inStore }}</span>
+        </p>
       </div>
     </div>
 
     <div class="product-sidebar">
-      <button class="buy">
-        <span>BUY ITEM</span>
+      <button
+        class="buy"
+        [class.disabled]="inStore >= product.stock"
+        [disabled]="inStore >= product.stock"
+        ngClass=""
+        (click)="addItemToCart(product)"
+      >
+        <span>ADD ITEM</span>
+      </button>
+
+      <button
+        class="buy"
+        *ngIf="inStore"
+        (click)="removeItemFromCart(product.id)"
+      >
+        <span>REMOVE ITEM</span>
       </button>
 
       <button class="info" mat-button (click)="openDialog()">

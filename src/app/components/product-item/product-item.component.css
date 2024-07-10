@@ -79,17 +79,19 @@ figure {
 }
 
 .product .product-description .info {
-  padding: 0 1rem;
+  padding-left: 1rem;
   color: #aaa;
   font-size: 0.8em;
   width: 65%;
   float: left;
-  height: fit-content;
+  overflow: hidden;
 }
 
 .product .product-description .info h1 {
-  font-size: 20px;
+  font-size: 1.25rem;
   margin: 0 0 5px;
+  max-height: 3rem;
+  overflow: hidden;
 }
 
 .product .product-description .info p {
@@ -202,4 +204,25 @@ figure {
     text-decoration: underline;
     font-size: 0.85rem;
   }
+}
+
+.cart-item {
+  background-color: #9bb6aa;
+  color: white;
+  margin: 0;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.5rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 0.25rem;
+  box-shadow: 2px 2px 2px #9bb6aa;
+}
+
+.disabled {
+  opacity: 0.5;
+}
+
+.highlighted {
+  border: 1px solid #9bb6aa;
+  box-shadow: 2px 2px 4px var(--secondary);
 }
