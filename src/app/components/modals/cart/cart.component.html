@@ -24,12 +24,16 @@
             </div>
           </div>
           <div class="cart-quantity-wrapper">
-            <mat-icon class="quantity-btn" (click)="decreaseItem(item.id)">
-              remove
-            </mat-icon>
-            <mat-icon class="quantity-btn" (click)="increaseItem(item.id)">
-              add
-            </mat-icon>
+            <button class="quantity-btn" (click)="decreaseItem(item.id)">
+              <mat-icon> remove </mat-icon>
+            </button>
+            <button
+              class="quantity-btn"
+              (click)="increaseItem(item.id)"
+              [class.disabled]="item.amountInCart >= item.amountInStock"
+            >
+              <mat-icon> add </mat-icon>
+            </button>
           </div>
         </div>
       </div>
@@ -79,6 +83,13 @@
         <strong>{{ "$ " + totalAmount.toFixed(2) }}</strong>
       </div>
     </div>
-    <button *ngIf="cartProducts$" class="confirm-btn">Confirm order</button>
+    <button
+      *ngIf="cartProducts$"
+      class="confirm-btn"
+      (click)="openCheckoutForm()"
+      [class.disabled]="totalQuantity === 0"
+    >
+      Confirm order
+    </button>
   </div>
 </section>
