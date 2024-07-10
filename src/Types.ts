@@ -75,3 +75,10 @@ export interface CartProduct {
   amountInCart: number;
   amountInStock: number;
 }
+
+export interface Order {
+  address: string;
+  email: string;
+  name: string;
+  phone: string;
+}

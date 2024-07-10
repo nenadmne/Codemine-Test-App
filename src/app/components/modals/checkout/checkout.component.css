@@ -1,8 +1,11 @@
 form {
   margin: 0 auto;
-  padding: 20px;
+  padding: 1rem;
   border: 1px solid #ccc;
   background-color: #f9f9f9;
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
 }
 
 /* Style for form labels */
@@ -23,7 +26,7 @@ input[type="email"] {
 
 /* Style for error messages */
 .error-message {
-  color: #ff0000; /* Red color for error messages */
+  color: var(--red); /* Red color for error messages */
   font-size: 12px;
   margin-bottom: 0.5rem;
 }
@@ -38,4 +41,77 @@ button[type="submit"] {
   cursor: pointer;
   border-radius: 4px;
   margin-top: 1rem;
+}
+
+button[type="button"] {
+  background-color: var(--white);
+  color: var(--cart-blue);
+  border: 1px solid var(--cart-blue);
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-top: 1rem;
+  margin-left: 0.5rem;
+}
+
+.cart-item-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0;
+  border-radius: 0.25rem;
+  border-bottom: 1px solid var(--border-color);
+  width: 300px;
+}
+
+.cart-item-image {
+  width: fit-content;
+  display: flex;
+}
+.cart-item-image img {
+  width: 5rem;
+  height: 5rem;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
+.form-wrapper {
+  padding-right: 1rem;
+  border-right: 2px solid var(--border-color);
+}
+
+.order-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem 1rem 0 1rem;
+}
+
+.total-bill {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  span {
+    color: var(--secondary);
+    border-bottom: 1px solid var(--secondary);
+  }
+}
+
+.products {
+  height: 80%;
+  max-height: 400px;
+  overflow-y: scroll;
+}
+
+.disabled {
+  opacity: 0.5;
+}
+
+.custom-snackbar-success {
+  .mdc-snackbar__surface {
+    background-color: green !important;
+  }
 }

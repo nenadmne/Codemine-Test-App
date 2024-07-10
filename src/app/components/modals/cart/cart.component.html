@@ -18,7 +18,7 @@
               <p>
                 Amount: <strong>{{ item.amountInCart }}</strong>
               </p>
-              <p style="color: var(--green-light); font-weight: 700">
+              <p style="color: var(--product-green); font-weight: 700">
                 ${{ item.price }}
               </p>
             </div>
@@ -89,7 +89,7 @@
       (click)="openCheckoutForm()"
       [class.disabled]="totalQuantity === 0"
     >
-      Confirm order
+      Go to checkout
     </button>
   </div>
 </section>

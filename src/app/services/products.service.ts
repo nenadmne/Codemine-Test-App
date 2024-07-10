@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
 import { PaginationParams, SearchParams } from '../../Types';
 import { Observable } from 'rxjs';
-import { Products, Product} from '../../Types';
+import { Products, Product } from '../../Types';
 
 @Injectable({
   providedIn: 'root',
@@ -32,6 +32,12 @@ export class ProductsService {
 
   getSingleProduct = (url: string): Observable<Product> => {
     return this.apiService.get(url, {
+      responseType: 'json',
+    });
+  };
+
+  postOrder = (url: string, body: any): Observable<any> => {
+    return this.apiService.post(url, body, {
       responseType: 'json',
     });
   };

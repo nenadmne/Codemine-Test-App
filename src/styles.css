@@ -14,6 +14,7 @@
   --black: #1e1e1e;
   --cart-blue: rgb(0, 123, 255);
   --cart-border: rgba(245, 245, 245);
+  --product-green: #9bb6aa;
 }
 
 html,
@@ -131,5 +132,20 @@ app-root {
 .mat-mdc-dialog-surface {
   width: fit-content !important;
   max-width: unset !important;
+}
+
+.custom-snackbar-success {
+  .mdc-snackbar__surface {
+    background-color: var(--green-light) !important;
+  }
+  .mdc-button__label {
+    color: var(--white);
+  }
+
+  .mat-mdc-simple-snack-bar{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
 }
 /* Overrides */

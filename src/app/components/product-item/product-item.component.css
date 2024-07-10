@@ -100,7 +100,7 @@ figure {
 }
 
 .product .product-description .price {
-  color: #9bb6aa;
+  color: var(--product-green);
   font-size: 1.5em;
   position: relative;
   height: fit-content;
@@ -139,7 +139,7 @@ figure {
 .product .product-sidebar button {
   border: 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  color: #fff;
+  color: var(--white);
   padding: 0.9em;
   font-size: 0.8em;
   width: 50px;
@@ -178,10 +178,10 @@ figure {
 .product .product-sidebar .buy:hover,
 .product .product-sidebar .info:hover {
   width: 130px;
-  background-color: #9bb6aa;
+  background-color: var(--product-green);
   position: relative;
   background-position: 15px center;
-  border-color: #9bb6aa;
+  border-color: var(--product-green);
 }
 
 .product .product-sidebar .remove-button:hover {
@@ -217,15 +217,15 @@ figure {
 }
 
 .cart-item {
-  background-color: #9bb6aa;
-  color: white;
+  background-color: var(--product-green);
+  color: var(--white);
   margin: 0;
   padding: 0.25rem 0.5rem;
   font-size: 0.5rem;
   letter-spacing: 1px;
   text-transform: uppercase;
   border-radius: 0.25rem;
-  box-shadow: 2px 2px 2px #9bb6aa;
+  box-shadow: 2px 2px 2px var(--product-green);
 }
 
 .disabled {
@@ -233,6 +233,6 @@ figure {
 }
 
 .highlighted {
-  border: 1px solid #9bb6aa;
+  border: 1px solid var(--product-green);
   box-shadow: 2px 2px 4px var(--secondary);
 }
