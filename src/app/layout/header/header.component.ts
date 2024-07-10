@@ -1,12 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { SharedService } from '../../services/shared.service';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { CartComponent } from '../../components/modals/cart/cart.component';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, MatDialogModule, CartComponent],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
 })
@@ -29,5 +31,17 @@ export class HeaderComponent {
 
   onSearch(event: Event) {
     event.preventDefault();
+  }
+
+  readonly dialog = inject(MatDialog);
+
+  openDialog() {
+    const dialogRef = this.dialog.open(CartComponent, {
+      data: {},
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 }
