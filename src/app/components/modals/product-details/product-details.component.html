@@ -28,7 +28,11 @@
           &#8250;
         </button>
       </div>
-      <div class="small-image-box">
+      <div
+        class="small-image-box"
+        [class.full-center]="images.length === 1"
+        [class.space-between]="images.length > 1"
+      >
         <img
           *ngFor="let item of images; let index = index"
           (click)="switchImage(index)"
@@ -53,9 +57,7 @@
       <li class="description">{{ product.description }}</li>
       <li class="stock">In stock: {{ product.stock }}</li>
       <li class="price">
-        <span class="prod-old-price">
-          {{ oldPrice }}
-        </span>
+        <span class="prod-old-price"> ${{ oldPrice }} </span>
         <span class="prod-discount">-{{ product.discountPercentage }}%</span>
         <span class="prod-price">${{ product.price }}</span>
       </li>
@@ -74,5 +76,8 @@
 </ng-container>
 
 <ng-container *ngIf="!product">
-  <p>Loading product details...</p>
+  <div class="loading-screen">
+    <mat-spinner></mat-spinner>
+    <p>Loading...</p>
+  </div>
 </ng-container>

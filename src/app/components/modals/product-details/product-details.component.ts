@@ -4,17 +4,25 @@ import {
   Inject,
   ChangeDetectorRef,
 } from '@angular/core';
-import { MatButtonModule } from '@angular/material/button';
-import { MatDialogModule, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Product } from '../../../../Types';
-import { ProductsService } from '../../../services/products.service';
 import { CommonModule } from '@angular/common';
-import { MatIconModule } from '@angular/material/icon';
+import { ProductsService } from '../../../services/products.service';
+import { Product } from '../../../../Types';
+
+import { MatIconModule } from '@angular/material/icon'; // For displaying star icons
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'; // Loading spinner
+import { MatDialogModule, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-product-details',
   standalone: true,
-  imports: [MatButtonModule, MatDialogModule, CommonModule, MatIconModule],
+  imports: [
+    MatButtonModule,
+    MatDialogModule,
+    CommonModule,
+    MatIconModule,
+    MatProgressSpinnerModule,
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './product-details.component.html',
   styleUrl: './product-details.component.css',
@@ -22,8 +30,8 @@ import { MatIconModule } from '@angular/material/icon';
 export class ProductDetailsComponent {
   constructor(
     private productsService: ProductsService,
-    private cdr: ChangeDetectorRef,
-    @Inject(MAT_DIALOG_DATA) public data: { id: number }
+    private cdr: ChangeDetectorRef, // Listening for changes inside component when data for product details is fetched
+    @Inject(MAT_DIALOG_DATA) public data: { id: number } // Allows injection of data.id from parent component
   ) {}
 
   product: Product | null = null;
@@ -33,6 +41,7 @@ export class ProductDetailsComponent {
 
   oldPrice: string = '';
 
+  // Fetching single product function
   fetchSingleProduct(id: number) {
     this.productsService
       .getSingleProduct(`https://dummyjson.com/products/${id}`)
@@ -48,20 +57,24 @@ export class ProductDetailsComponent {
     this.fetchSingleProduct(this.data.id);
   }
 
+  // Function for shifting main image by clicking on left arrow
   prevSlide() {
     this.current =
       this.current === 0 ? this.images.length - 1 : this.current - 1;
   }
 
+  // Function for shifting main image by clicking on right arrow
   nextSlide() {
     this.current =
       this.current === this.images.length - 1 ? 0 : this.current + 1;
   }
 
+  // Function for shifting main image by clicking on small image
   switchImage(index: number) {
     this.current = index;
   }
 
+  // Function for creating old price from discount percentage and price
   calculateOldPrice() {
     if (this.product?.discountPercentage) {
       this.oldPrice = (
@@ -71,24 +84,24 @@ export class ProductDetailsComponent {
     }
   }
 
+  // Function for rating display trough stars
   getRatingArray() {
     if (this.product) {
-      const fullStars = Math.floor(this.product.rating); // Get the integer part for full stars
-      const hasHalfStar = this.product.rating % 1 !== 0; // Check if there's a half star
+      const fullStars = Math.floor(this.product.rating);
+      const hasHalfStar = this.product.rating % 1 !== 0;
 
-      // Create an array with the number of full stars
+      // Pushing 1 represents full star
       let ratingArray = Array(fullStars).fill(1);
 
-      // Add half star if present
+      // Pushing 0.5 represents a half-empty star
       if (hasHalfStar) {
         ratingArray.push(0.5);
       }
-
+      // Checking for empty stars, pushing 0 value for them
       const remainingStars = 5 - ratingArray.length;
       for (let i = 0; i < remainingStars; i++) {
-        ratingArray.push(0); // Pushing 0 represents an empty star
+        ratingArray.push(0);
       }
-
       return ratingArray;
     }
     return [];
