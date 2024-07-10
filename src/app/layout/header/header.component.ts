@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { SharedService } from '../../services/shared.service';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-header',
@@ -13,6 +13,7 @@ import { SharedService } from '../../services/shared.service';
 export class HeaderComponent {
   searchControl = new FormControl();
 
+  // Search product function on every keystroke with debounce delay. Returning all products on empty input with selected pagination length
   constructor(private sharedService: SharedService) {
     this.searchControl.valueChanges
       .pipe(debounceTime(300), distinctUntilChanged())
@@ -21,7 +22,7 @@ export class HeaderComponent {
         if (value) {
           this.sharedService.fetchProducts(value);
         } else {
-          this.sharedService.fetchAllProducts(params.limit, 0, ''); // Fetch all products with saved limit
+          this.sharedService.fetchAllProducts(params.limit, 0, '');
         }
       });
   }

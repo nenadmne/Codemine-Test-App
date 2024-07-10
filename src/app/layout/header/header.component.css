@@ -1,5 +1,14 @@
-.home-img-div a:hover {
-  scale: 1.1;
+.cart-img-div{
+  background-color: var(--white);
+  width: 2.5rem;
+  padding: 0.25rem;
+  margin-right: 1rem;
+  border-radius: 50%;
+}
+
+.cart-img-div img {
+  width: 100%;
+  cursor: pointer;
 }
 
 .home-img-div img {
@@ -17,6 +26,10 @@
   align-self: center;
   justify-content: center;
   border-radius: 1rem;
+}
+
+.home-img-div a:hover {
+  scale: 1.1;
 }
 
 .bg-body-tertiary {
